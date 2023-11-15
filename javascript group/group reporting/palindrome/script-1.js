@@ -50,13 +50,13 @@ function enter(){ //the function called when 'Check' button is clicked
     inp.innerHTML = p_input;
     //display in 'Input:' container the input from input field
     
-    const f_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    const c_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     //matches atches any character that is not an uppercase letter (A-Z), a lowercase letter (a-z), or a digit (0-9)
 
-    const input_len = f_input.length;
+    const input_len = c_input.length;
     //get final input's length
 
-    palindrome(f_input, input_len);
+    palindrome(c_input, input_len);
     //call palindrome check to check if the input is a palindrome or not
     //arguments: final input, input length
 }
