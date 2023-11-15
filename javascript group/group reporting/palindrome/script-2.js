@@ -1,4 +1,5 @@
 const inp = document.getElementById('original'); //called container fr displaying input
+const c_inp = document.getElementById('cleaned'); //called container fr displaying reversed input
 const r_inp = document.getElementById('reversed'); //called container fr displaying reversed input
 const pal = document.getElementById('checker'); //called container fr displaying result
 
@@ -47,19 +48,22 @@ function enter(){ //the function called when 'Check' button is clicked
     inp.innerHTML = p_input;
     //display in 'Input:' container the input from input field
 
-    const f_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    const c_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     //matches atches any character that is not an uppercase letter (A-Z), a lowercase letter (a-z), or a digit (0-9)
 
-    const input_len = f_input.length;
+    c_inp.innerHTML = c_input;
+    //display in 'Cleaned:' container the cleaned input
+
+    const input_len = c_input.length;
     //get final input's length
 
-    const r_input = reverse_input(f_input, input_len);
+    const r_input = reverse_input(c_input, input_len);
     //call reverse_input function to create the reversed version of the input
 
     r_inp.innerHTML = r_input;
     //display in 'Reversed:' container the reversed input
 
-    palindrome(f_input, r_input, input_len);
+    palindrome(c_input, r_input, input_len);
     //call palindrome check to check if the input is a palindrome or not
     //arguments: final input, input length
 }
