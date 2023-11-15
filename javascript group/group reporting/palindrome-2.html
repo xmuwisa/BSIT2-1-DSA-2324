@@ -30,7 +30,42 @@
         <p>Palindrome: <span id="checker"></span></p>
 
         <script>
-            
+            const inp = document.getElementById('original'); //called container fr displaying input
+            const pal = document.getElementById('checker'); //called container fr displaying result
+
+            function reverse_input(input, l){
+                let new_input = "";
+                
+                for(let i = l - 1; i >= 0; i--){
+                    new_input += input[i];
+                }
+
+                return new_input;
+            }
+
+            function enter(){ //the function called when 'Check' button is clicked
+                const p_input = document.getElementById('inp').value;
+                //get input from input field
+
+                document.getElementById('inp').value = '';
+                //clear input field
+
+                inp.innerHTML = p_input;
+                //display in 'Input:' container the input from input field
+                
+                const f_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                //matches atches any character that is not an uppercase letter (A-Z), a lowercase letter (a-z), or a digit (0-9)
+
+                const input_len = f_input.length;
+                //get final input's length
+
+                const r_input = reverse_input(f_input, input_len);
+                //call reverse_input function to create the reversed version of the input
+
+                palindrome(f_input, input_len);
+                //call palindrome check to check if the input is a palindrome or not
+                //arguments: final input, input length
+            }
         </script>
     </body>
 </html>
