@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Heap Sort</title>
+
+        <style>
+            * {
+                font-family: 'Poppins';
+            }
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>HEAP SORT</h2>
+        <div>
+            <input type="text" id="num" placeholder="Enter a number">
+            <button onclick="insert_num()">Insert</button>
+            <button onclick="sort_num()">Sort</button>
+        </div>
+        
+        <p>Unsorted numbers: <span id="unsorted"></span></p>
+        <p>Sorted numbers: <span id="sorted"></span></p>
+
+
+        <!-- 
+            REFERENCE: https://www.youtube.com/watch?v=2DmK_H7IdTo&t=15s
+            NOTE: comment out/remove 'console.log()'s methods -> only used for debugging purposes 
+        -->
+
+        <script>
+            const heap = [];
+            const sorted_num = document.getElementById('sorted');
+
+            function insert_num() {
+                const value = parseInt(document.getElementById('num').value);
+                if (!isNaN(value)) {
+                    heap.push(value);
+                    document.getElementById('num').value = '';
+                    document.getElementById("unsorted").innerHTML = `${heap.join(', ')}`;
+                }
+            }
+
+            function max_heapify(arr, arr_length, i) {
+                console.log("max_heapify(): arr: ", arr, " arr_length: ", arr_length, " i: ",  i);
+                let largest = i;
+                console.log("max_heapify(): largest: ", largest);
+                const left = 2 * i + 1;
+                console.log("max_heapify(): left: ", left);
+                const right = 2 * i + 2; 
+                console.log("max_heapify(): right: ", right);
+
+                if (left < arr_length && arr[left] > arr[largest]) {
+                    largest = left;
+                    console.log("max_heapify(): largest: ", largest);
+                }
+
+                if (right < arr_length && arr[right] > arr[largest]) {
+                    largest = right;
+                    console.log("max_heapify(): largest: ", largest);
+                }
+
+                if (largest !== i) {
+                    console.log("max_heapify(): arr: ", arr);
+
+                    console.log("max_heapify(): arr[", i, "]", arr[i]);
+                    const temp = arr[i];
+                    console.log("max_heapify(): arr[", largest, "]", arr[largest]);
+                    arr[i] = arr[largest];
+                    arr[largest] = temp;
+
+                    console.log("max_heapify(): arr: ", arr, " arr_length: ", arr_length, " largest: ",  largest);
+
+                    max_heapify(arr, arr_length, largest);
+                }
+            }
+            
+
+            function build_max_heap(arr) {
+                console.log("build_max_heap() arr: ", arr);
+                const arr_length = arr.length;
+                console.log("build_max_heap(): arr_length: ", arr_length);
+                for (let i = Math.floor(arr_length / 2) - 1; i >= 0; i--) {
+                    console.log("build_max_heap(): arr: ", arr, " arr_length: ", arr_length, " i: ",i);
+                    max_heapify(arr, arr_length, i);
+                }
+            }
+
+            function heap_sort(arr) {
+                console.log("heap_sort():", arr);
+                const arr_length = arr.length;
+                console.log("heap_sort(): ", arr_length);
+                build_max_heap(arr);
+
+                for (let i = arr_length - 1; i > 0; i--) {
+                    const temp = arr[0];
+                    arr[0] = arr[i];
+                    arr[i] = temp;
+
+                    console.log("heap_sort(): arr: ", arr, " arr: ", i);
+                    max_heapify(arr, i, 0);
+                }
+            }
+
+            function sort_num() {
+                const sorted_arr = [...heap];
+                console.log("sort_num(): sorted_arr: ", sorted_arr);
+                heap_sort(sorted_arr);
+                console.log("sort_num(): sorted_arr: ", sorted_arr);
+                sorted_num.textContent = sorted_arr.join(', ');
+                console.log("SORTED!");
+            }
+        </script>
+    </body>
+</html>

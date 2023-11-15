@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Palindrome Checker</title>
+        <style>
+            * {
+                font-family: 'Poppins';
+            }
+
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>PALINDROME CHECKER</h2>
+        <div>
+            <input type="text" id="inp" placeholder="Input here">
+            <button onclick="enter()">Check</button>
+        </div>
+        
+        <p>Input: <span id="original"></span></p>
+        <!-- <p>Reversed: <span id="reversed"></span></p> -->
+        <p>Palindrome: <span id="checker"></span></p>
+
+        <script>
+            function enter(){
+                const p_input = document.getElementById('inp').value;
+                document.getElementById('inp').value = '';
+                
+                const f_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                const l = f_input.length;
+                const valid = palindrome(f_input, l);
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            // function output(n,y){
+            //     const inp = document.getElementById('original').innerHTML= n;
+            //     const pal = document.getElementById('checker');
+            //     if (y){
+            //         pal.innerHTML= "TRUE"; 
+            //     } else {
+            //         pal.innerHTML= "FALSE"; 
+            //     }
+            // }
+
+            // function palindrome(n,x){
+            //     let valid = 0, i, j = x-1, k;
+            //     for(i = 0; i < x; i++){
+            //         for(k = 0; k < 1; k++){
+            //             console.log(n[i], n[j]);
+            //             if(n[i] == n[j]){
+            //                 valid = 1;
+            //                 continue;
+            //             } else {
+            //                 valid = 0;
+            //                 break;
+            //             }
+            //         }
+            //         j--;
+            //     }
+                
+            //     output(n,valid);
+
+            // }
+
+            // function palindrome_checker(){
+            //     const p_input = document.getElementById('inp').value;
+            //     document.getElementById('inp').value = '';
+            //     const f_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+            //     const l = f_input.length;
+            //     const valid = palindrome(f_input, l);
+            // }
+        </script>
+    </body>
+</html>
