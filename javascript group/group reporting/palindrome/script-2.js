@@ -4,23 +4,23 @@ const r_inp = document.getElementById('reversed'); //called container fr display
 const pal = document.getElementById('checker'); //called container fr displaying result
 
 function output_result(valid){
-    const pal = document.getElementById('checker');
-    if (valid){
-        pal.innerHTML= "TRUE"; 
+    const pal = document.getElementById('checker'); //called the container that will display if input is a palindrome or not
+    if (valid){ 
+        pal.innerHTML= "TRUE"; //display true if a palindrome
     } else {
-        pal.innerHTML= "FALSE"; 
+        pal.innerHTML= "FALSE"; //display false if not a palindrome
     }
 }
 
 function palindrome(input, r_input, l){
     let valid;
 
-    for(let i = 0; i < l; i++){
-        if (input[i] == r_input[i]){
-            valid = 1;
+    for(let i = 0; i < l; i++){//loop that goes through the index of the input
+        if (input[i] == r_input[i]){ //compares each character of original and reversed input
+            valid = 1; //true
             continue;
         } else {
-            valid = 0;
+            valid = 0; //false
             break;
         }
     }
@@ -29,10 +29,12 @@ function palindrome(input, r_input, l){
 }
 
 function reverse_input(input, l){
-    let new_input = "";
+    let new_input = ""; //declare new_input as container for the reversed input
 
-    for(let i = l - 1; i >= 0; i--){
-        new_input += input[i];
+    for(let i = l - 1; i >= 0; i--){ //loop that goes through the index of the input
+        new_input += input[i]; 
+        //get characters using each index starting from the last index to index 0
+        //put character in descending order to the new_input variable
     }
 
     return new_input;
