@@ -1,7 +1,7 @@
-const inp = document.getElementById('original'); //called container fr displaying input
-const c_inp = document.getElementById('cleaned'); //called container fr displaying reversed input
-const r_inp = document.getElementById('reversed'); //called container fr displaying reversed input
-const pal = document.getElementById('checker'); //called container fr displaying result
+const inp = document.getElementById('original'); //called container for displaying input
+const c_inp = document.getElementById('cleaned'); //called container for displaying reversed input
+const r_inp = document.getElementById('reversed'); //called container for displaying reversed input
+const pal = document.getElementById('checker'); //called container for displaying result
 
 function output_result(valid){
     const pal = document.getElementById('checker'); //called the container that will display if input is a palindrome or not
