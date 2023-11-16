@@ -51,7 +51,7 @@ function enter(){ //the function called when 'Check' button is clicked
     //display in 'Input:' container the input from input field
     
     const c_input = p_input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-    //matches atches any character that is not an uppercase letter (A-Z), a lowercase letter (a-z), or a digit (0-9)
+    //matches any character that is not an uppercase letter (A-Z), a lowercase letter (a-z), or a digit (0-9)
 
     const input_len = c_input.length;
     //get final input's length
