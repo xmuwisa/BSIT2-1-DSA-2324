@@ -7,15 +7,18 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h2>PALINDROME CHECKER</h2>
-        <div>
-            <input type="text" id="inp" placeholder="Input here">
-            <button onclick="enter()">Check</button>
+        <div class="main">
+            <h2>PALINDROME CHECKER</h2>
+            <div class="input_field">
+                <input type="text" id="inp" placeholder="Input here">
+                <button onclick="enter()">CHECK</button>
+            </div>
+            
+            <p><b>Input: </b><span id="original"></span></p>
+            <p><b>Palindrome: </b><span id="checker" style="text-transform: uppercase;"></span></p>
+            <!-- styles to be revised -->
+    
+            <script src="script-3.js"></script>
         </div>
-        
-        <p>Input: <span id="original"></span></p>
-        <p>Palindrome: <span id="checker" style="text-transform: uppercase;"></span></p>
-
-        <script src="script-3.js"></script>
     </body>
 </html>
